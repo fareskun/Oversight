@@ -7,7 +7,6 @@ export default function GlobeCanvas() {
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
-    if (window.innerWidth < 720) return
 
     const wrapEl = canvas.closest('.hero-visual')
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -16,7 +15,7 @@ export default function GlobeCanvas() {
     let height = wrapEl.clientHeight
 
     const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true })
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, window.innerWidth < 560 ? 1.5 : 2))
     renderer.setSize(width, height)
 
     const scene = new THREE.Scene()
@@ -105,7 +104,6 @@ export default function GlobeCanvas() {
     animate()
 
     function handleResize() {
-      if (window.innerWidth < 720) return
       width = wrapEl.clientWidth
       height = wrapEl.clientHeight
       renderer.setSize(width, height)

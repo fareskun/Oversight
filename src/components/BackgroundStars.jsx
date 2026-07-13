@@ -7,7 +7,6 @@ export default function BackgroundStars() {
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
-    if (window.innerWidth < 720) return
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
@@ -19,7 +18,7 @@ export default function BackgroundStars() {
     camera.position.z = 10
 
     const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true })
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, window.innerWidth < 560 ? 1.5 : 2))
     renderer.setSize(width, height)
 
     const starCount = 180
