@@ -5,3 +5,17 @@
   .step h3{ font-size:18px; font-weight:600; margin-bottom:10px; }
   .step p{ font-size:14px; color:var(--text-dim); }
   .step-connector{ display:none; }
+
+  @media (max-width: 980px){
+    .process-grid{ grid-template-columns:1fr; gap:20px; }
+  }
+  @media (max-width: 768px){
+    .process{ padding:20px 0 60px; }
+    .step{ padding:24px 22px; }
+  }
+  @media (max-width: 560px){
+    .process{ padding:20px 0 40px; }
+    .step{ padding:20px 18px; }
+    .step h3{ font-size:16.5px; }
+    .step p{ font-size:13.5px; }
+  }

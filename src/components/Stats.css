@@ -8,3 +8,16 @@
   .stat .num{ font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:var(--text); }
   .stat .num span{ color:var(--accent); }
   .stat .label{ font-size:12.5px; color:var(--text-faint); margin-top:4px; }
+
+  @media (max-width: 980px){
+    .stats .wrap{ grid-template-columns:repeat(2,1fr); row-gap:28px; }
+    .stat:nth-child(3){ border-left:none; padding-left:0; }
+    .stat{ padding:0 20px; }
+  }
+  @media (max-width: 560px){
+    .stats{ padding:28px 0; }
+    .stats .wrap{ row-gap:24px; column-gap:10px; }
+    .stat{ padding:0 14px; }
+    .stat .num{ font-size:24px; }
+    .stat .label{ font-size:11.5px; }
+  }
