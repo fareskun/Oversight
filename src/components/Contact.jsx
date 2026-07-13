@@ -1,6 +1,4 @@
 import { useState, useRef } from 'react'
-import { collection, addDoc, Timestamp } from 'firebase/firestore'
-import { db } from '../firebase'
 import './Contact.css'
 
 export default function Contact() {
@@ -37,6 +35,15 @@ export default function Contact() {
 
     setSubmitting(true)
     try {
+      const { db } = await import('../firebase')
+      const { collection, addDoc, Timestamp } = await import('firebase/firestore')
+
+      if (!db) {
+        setSubmitting(false)
+        setSubmitted(true)
+        return
+      }
+
       const data = {
         name: form.querySelector('[name="name"]').value.trim(),
         email: form.querySelector('[name="email"]').value.trim(),

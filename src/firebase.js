@@ -1,4 +1,4 @@
-import { initializeApp } from 'firebase/app'
+import { initializeApp, getApps } from 'firebase/app'
 import { getFirestore } from 'firebase/firestore'
 import { getAnalytics } from 'firebase/analytics'
 
@@ -12,6 +12,14 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 }
 
-const app = initializeApp(firebaseConfig)
-export const db = getFirestore(app)
-if (typeof window !== 'undefined') getAnalytics(app)
+const hasConfig = firebaseConfig.apiKey && firebaseConfig.projectId
+
+let db = null
+
+if (hasConfig && !getApps().length) {
+  const app = initializeApp(firebaseConfig)
+  db = getFirestore(app)
+  if (typeof window !== 'undefined') getAnalytics(app)
+}
+
+export { db }
