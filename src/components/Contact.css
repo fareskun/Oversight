@@ -1,0 +1,49 @@
+.contact{ padding:20px 0 130px; }
+  .contact-grid{ display:grid; grid-template-columns:0.85fr 1.15fr; gap:60px; }
+  .contact-info h2{ font-size:clamp(28px,3vw,36px); font-weight:700; margin-bottom:18px; }
+  .contact-info p{ color:var(--text-dim); font-size:15px; margin-bottom:30px; max-width:420px; }
+  .info-list{ display:flex; flex-direction:column; gap:18px; }
+  .info-item{ display:flex; gap:14px; align-items:flex-start; }
+  .info-item .ico{ width:20px; height:20px; color:var(--accent); flex-shrink:0; margin-top:2px; }
+  .info-item .t{ font-size:13.5px; color:var(--text-dim); }
+  .info-item .t strong{ display:block; color:var(--text); font-size:14.5px; margin-bottom:2px; }
+
+  .form-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    padding:38px; position:relative;
+  }
+  .form-card-head{
+    display:flex; justify-content:space-between; align-items:center;
+    margin-bottom:26px; padding-bottom:20px; border-bottom:1px solid var(--line);
+  }
+  .form-card-head .title{ font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.1em; color:var(--text-faint); text-transform:uppercase; }
+  .form-card-head .id{ font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--brass); }
+
+  .field{ margin-bottom:20px; }
+  .field label{ display:block; font-size:13px; color:var(--text-dim); margin-bottom:8px; }
+  .field .req{ color:var(--brass); }
+  .field input, .field select, .field textarea{
+    width:100%; background:var(--surface-2); border:1px solid var(--line-strong);
+    border-radius:8px; padding:12px 14px; font-size:14.5px; color:var(--text);
+    transition:border-color 0.2s ease, background 0.2s ease;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{
+    outline:none; border-color:var(--accent); background:var(--surface);
+  }
+  .field textarea{ resize:vertical; min-height:110px; }
+  .field-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .field-error{ font-size:12px; color:var(--error); margin-top:6px; display:none; }
+  .field.invalid input, .field.invalid select, .field.invalid textarea{ border-color:var(--error); }
+  .field.invalid .field-error{ display:block; }
+
+  .form-foot{ display:flex; align-items:center; justify-content:space-between; gap:18px; margin-top:8px; }
+  .form-foot .note{ font-size:12px; color:var(--text-faint); }
+
+  .success-state{
+    display:none; flex-direction:column; align-items:flex-start; gap:14px; padding:20px 0 6px;
+  }
+  .success-state.show{ display:flex; }
+  .success-state .check{ width:44px; height:44px; border-radius:50%; background:var(--accent-dim); display:flex; align-items:center; justify-content:center; color:var(--accent); }
+  .success-state h3{ font-size:19px; font-weight:600; }
+  .success-state p{ font-size:14px; color:var(--text-dim); }
+  .form-body.hidden{ display:none; }

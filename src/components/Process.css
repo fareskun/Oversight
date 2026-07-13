@@ -1,0 +1,7 @@
+.process{ padding:20px 0 110px; }
+  .process-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+  .step{ position:relative; padding:30px 26px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); }
+  .step .step-num{ font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--brass); margin-bottom:18px; }
+  .step h3{ font-size:18px; font-weight:600; margin-bottom:10px; }
+  .step p{ font-size:14px; color:var(--text-dim); }
+  .step-connector{ display:none; }
